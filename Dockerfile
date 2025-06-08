@@ -1,5 +1,7 @@
 # Python Based Docker
-FROM python:3.11-slim  # Avoid latest due to pandas build errors on Python 3.13
+FROM python:3.11-slim
+
+# Avoid latest due to pandas build errors on Python 3.13
 
 # Installing Packages
 RUN apt update && apt upgrade -y
