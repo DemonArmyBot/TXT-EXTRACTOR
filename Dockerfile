@@ -10,18 +10,14 @@ RUN apt install git curl python3-pip ffmpeg aria2 build-essential gcc g++ libffi
 # Updating Pip Packages
 RUN pip3 install -U pip
 
-# Copying Requirements
-COPY requirements.txt /requirements.txt
+# Copying Files
+COPY . /EXTRACTOR
 
-# Installing Requirements
-RUN pip3 install -U -r /requirements.txt
-
-# Creating work directory
-RUN mkdir /EXTRACTOR
+# Set Working Directory
 WORKDIR /EXTRACTOR
 
-# Copying start script
-COPY start.sh /start.sh
+# Installing Requirements
+RUN pip3 install -U -r requirements.txt
 
 # Running MessageSearchBot
-CMD ["/bin/bash", "/start.sh"]
+CMD ["/bin/bash", "start.sh"]
